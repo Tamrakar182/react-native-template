@@ -2,7 +2,6 @@ import axios from 'axios';
 import { BASE_API } from './config-global';
 import { getItem } from './AsyncStorage';
 import { QueryClient } from '@tanstack/react-query';
-import { PageSearchType } from '@/types';
 
 let logoutCallback: (() => void) | null = null;
 
@@ -64,19 +63,6 @@ export const endpoints = {
 export const queryKeys = {
   packages: {
     list: ['packages'],
-    search: ({ page, perPage, search }: PageSearchType) => [
-      'packages',
-      page,
-      perPage,
-      search,
-    ],
-    infiniteScroll: ({
-      perPage,
-      search,
-    }: {
-      perPage: number;
-      search: string;
-    }) => ['packages', perPage, search],
   },
   user: {
     profile: ["profile"]
